@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/register.css" />
+    <link rel="stylesheet" href="../../index.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <title>Registro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="register__container">
+        <form class="register_box">
+          <h1>Registrate!</h1>
+          <div class="register__field__container">
+            <div
+              class="register__fields__input__container"
+              id="register__name_container"
+            >
+              <div class="register__icon__container">
+                <img
+                  src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/30/000000/external-user-interface-kiranshastry-solid-kiranshastry-1.png"
+                />
+              </div>
+              <input
+                name="register__name"
+                id="register__name"
+                type="text"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div
+              class="register__fields__input__container"
+              id="register__username_container"
+            >
+              <div class="register__icon__container">
+                <img
+                  src="https://img.icons8.com/ios-glyphs/40/000000/email.png"
+                />
+              </div>
+              <input
+                name="register__email"
+                id="register__email"
+                type="email"
+                placeholder="@correo"
+                required
+              />
+              <span class="register__alert_email toogle">Email no valido</span>
+            </div>
+            <div
+              class="register__fields__input__container"
+              id="register__password_container"
+            >
+              <div class="register__icon__container">
+                <img
+                  src="https://img.icons8.com/material-rounded/40/000000/lock--v1.png"
+                />
+              </div>
+              <input
+                name="register__password"
+                id="register__password"
+                type="password"
+                placeholder="Contraseña"
+                required
+              />
+            </div>
+            <div
+              class="register__fields__input__container"
+              id="register__repeat__password_container"
+            >
+              <div class="register__icon__container">
+                <img
+                  src="https://img.icons8.com/material-rounded/40/000000/lock--v1.png"
+                />
+              </div>
+              <input
+                name="register__repeat__password"
+                id="register__repeat__password"
+                type="password"
+                placeholder="Repetir Contraseña"
+                required
+              />
+              <span class="register__alert_pass toogle"
+                >contraseña no valido</span
+              >
+            </div>
+          </div>
+          <div class="register__footer__options">
+            <a href="login.html">¿Ya tienes cuenta?</a>
+            <button type="submit" class="btn register__button" id="register">
+              Registrate
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/register.js"></script>
+  </body>
+</html>

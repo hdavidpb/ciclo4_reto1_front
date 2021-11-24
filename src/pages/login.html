@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,45 +12,69 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
     <title>Login</title>
   </head>
   <body>
     <div class="container">
       <div class="login__container">
         <div class="backgroun__container">
-          <img
-            src="../assets/images/pexels-soumil-kumar-735911.jpg"
+          <!-- <img
+            src="../assets/images/pexels-rostislav-uzunov-5011647.jpg"
             alt="img"
-          />
+          /> -->
         </div>
         <div class="form__container">
           <form class="form__box">
             <h1>Inicia sesion!</h1>
             <div class="field__container">
-              <div class="fields__input__container">
+              <div class="fields__input__container" id="username_container">
                 <div class="icon__container">
                   <img
                     src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/30/000000/external-user-interface-kiranshastry-solid-kiranshastry-1.png"
                   />
                 </div>
-                <input type="email" placeholder="@username" />
+                <input
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="@correo"
+                  required
+                />
+                <span class="alert_email toogle">Email no valido</span>
               </div>
-              <div class="fields__input__container">
+              <div class="fields__input__container" id="password_container">
                 <div class="icon__container">
                   <img
                     src="https://img.icons8.com/material-rounded/40/000000/lock--v1.png"
                   />
                 </div>
-                <input type="password" placeholder="Password" />
+                <input
+                  name="password"
+                  id="password"
+                  type="password"
+                  placeholder="Contraseña"
+                  required
+                  autocomplete="nickname"
+                />
+                <span class="alert_pass toogle">contraseña no valido</span>
               </div>
             </div>
             <div class="footer__options">
-              <a href="#">¿No tienes cuenta?</a>
-              <button class="btn login__button">Iniciar sesión</button>
+              <a href="register.html">¿No tienes cuenta?</a>
+              <button type="submit" class="btn login__button" id="login">
+                Iniciar sesión
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <script src="../js/index.js"></script>
   </body>
 </html>

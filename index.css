@@ -14,4 +14,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: url("./src/assets/images/pexels-rostislav-uzunov-5011647.jpg")
+    no-repeat center center/cover; */
+}
+.btn {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.096);
 }
