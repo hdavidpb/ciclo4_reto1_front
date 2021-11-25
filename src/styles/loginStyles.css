@@ -122,7 +122,9 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #36c5fe;
 }
 .footer__options button:hover {
   background: #9a11f2;

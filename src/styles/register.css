@@ -93,6 +93,8 @@
   align-items: center;
   text-decoration: none;
   font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
   color: #ffffff;
 }
 .register__footer__options button:hover {
@@ -113,10 +115,10 @@
 }
 
 .invalidField {
-  box-shadow: 0 0 2px 2px rgba(236, 5, 5, 0.63);
+  box-shadow: 0 0 3px 3px rgba(236, 5, 5, 0.63);
 }
 .validField {
-  box-shadow: 0 0 2px 2px rgba(5, 236, 63, 0.815);
+  box-shadow: 0 0 3px 3px rgba(5, 236, 63, 0.815);
 }
 
 .toogle {

@@ -54,20 +54,75 @@ $repeatPassword.addEventListener("blur", () => {
 const emailRegExp = "^[^@]+@[^@]+.[^@]+";
 const reg = new RegExp(emailRegExp);
 
+const cleanField = () => {
+  $email.value = "";
+  $name.value = "";
+  $password.value = "";
+  $repeatPassword.value = "";
+};
+
+const handleSubmitData = async (data) => {
+  console.log("Enviando");
+  try {
+    const response = await fetch("http://144.22.38.112:8080/api/user/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    alert("Usuario creado exitosamente!");
+    console.log(await response.json());
+    cleanField();
+  } catch (error) {
+    console.log(error);
+    alert("AH OCURRIDO UN ERROR");
+  }
+};
+
 $register.addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (!reg.test($email.value)) {
-    alert("Email no valido");
-    return;
-  }
-
-  if ($password.value !== $repeatPassword.value) {
-    alert("Las contraseñas no coinciden");
-    return;
-  }
-
   if (!$name.value.trim()) {
-    alert("Debe completar el campo de nombre");
+    $nameContainer.classList.add("invalidField");
+    return;
+  } else {
+    $nameContainer.classList.remove("invalidField");
   }
+
+  if (!$email.value.trim() && !reg.test($email.value)) {
+    $emailContainer.classList.add("invalidField");
+    return;
+  } else {
+    $emailContainer.classList.remove("invalidField");
+  }
+
+  if (!$password.value.trim()) {
+    $passwordContainer.classList.add("invalidField");
+    return;
+  } else {
+    $passwordContainer.classList.remove("invalidField");
+  }
+
+  if (!$repeatPassword.value.trim()) {
+    $repeatPasswordContainer.classList.add("invalidField");
+    return;
+  } else {
+    $repeatPasswordContainer.classList.remove("invalidField");
+  }
+
+  if ($password.value.trim() && $repeatPassword.value.trim()) {
+    if ($password.value !== $repeatPassword.value) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+  }
+
+  const data = {
+    email: $email.value,
+    password: $password.value,
+    name: $name.value,
+  };
+  handleSubmitData(data);
 });

@@ -6,7 +6,8 @@ const $passwordContainer = document.querySelector("#password_container");
 
 const $alertEmail = document.querySelector(".alert_email");
 const $alertPassword = document.querySelector(".alert_pass");
-
+const emailRegExp = "^[^@]+@[^@]+.[^@]+";
+const reg = new RegExp(emailRegExp);
 /***********************ANIMATE***********************/
 $email.addEventListener("focus", () => {
   $emailContainer.classList.toggle("onFocus");
@@ -50,23 +51,44 @@ $password.addEventListener("change", (e) => {
     $passwordContainer.classList.add("validField");
   }
 });
+const cleanField = () => {
+  $email.value = "";
 
-const emailRegExp = "^[^@]+@[^@]+.[^@]+";
-const reg = new RegExp(emailRegExp);
+  $password.value = "";
+};
+const handleSubmit = async (email, password) => {
+  console.log("Enviando");
+  try {
+    const response = await fetch(
+      `http://144.22.38.112:8080/api/user/${email}/${password}`
+    );
+    const responseData = await response.json();
+    console.log(responseData);
+    if (responseData.id === null) {
+      alert("No tienes cuenta, debes registrarte!");
+    } else {
+      alert("BIENVENIDO!");
+    }
+  } catch (error) {
+    alert("AH OCURRIDO UN ERROR");
+    console.log(error);
+  }
+};
+
 $login = document.querySelector("#login").addEventListener("click", (e) => {
   e.preventDefault();
 
   if (!reg.test($email.value)) {
     $emailContainer.classList.toggle("invalidField");
-
     return;
   }
 
   if (!$password.value.trim()) {
     $passwordContainer.classList.toggle("invalidField");
-
     return;
   }
+
+  handleSubmit($email.value, $password.value);
 
   // console.log(reg.test($email.value));
   // console.log($email.value);
